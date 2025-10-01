@@ -1,0 +1,12 @@
+
+.loginContainer{
+    width: 35vw;
+    height: 70vh;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 1rem var(--box-shadow);
+    background-color: var(--background-segundario);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
