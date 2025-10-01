@@ -7,12 +7,12 @@ function Login(){
     <>
       <Body>
         <div className={styles.loginContainer}>
-          <div>
+          <div className={styles.loginTitle}>
             <i className="fa-light fa-user"></i>
-            <h1>Login</h1>
+            <p className={styles.loginTitleText}>Login</p>
           </div>
-          <div>
-
+          <div className={styles.loginForm}>
+            <input type="text" />
           </div>
         </div>
       </Body>
