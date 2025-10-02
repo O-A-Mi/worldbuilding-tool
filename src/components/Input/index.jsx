@@ -23,6 +23,7 @@ function Input({
   required,
   disabled,
   readOnly,
+  width,
   icon,
   iconStyle = {},
   upperCase,
@@ -55,7 +56,7 @@ function Input({
     ref: inputRef,
     onBlur,
     style: inputStyles,
-    className: className || "inputPadrao",
+    className: className || (styles.inputPadrao),
     ...props
   };
 
@@ -113,7 +114,8 @@ function Input({
         return (
           <>
             <input 
-              {...commonProps} 
+              {...commonProps}
+              style={{ maxWidth: `calc(${width}%)` }}
               type={isPasswordVisible ? "text" : "password"} 
             />
             <div className={styles.iconsContainer}>

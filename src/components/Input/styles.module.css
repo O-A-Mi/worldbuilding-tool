@@ -51,6 +51,7 @@
 
 .inputPadraoField{
     display: flex;
+    justify-content: end;
     align-items: center;
     position: relative;
     flex-grow: 1;
@@ -72,8 +73,8 @@
 
 .iconsContainer{
     position: absolute;
-    right: 1rem;
     display: flex;
+    margin-right: 1rem;
     align-items: center;
     gap: 1rem;
     user-select: none;

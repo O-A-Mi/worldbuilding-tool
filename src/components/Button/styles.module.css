@@ -1,0 +1,265 @@
+/* Botão Principal */
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0 1.5rem;
+    height: 2.5rem;
+    min-width: 2.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    line-height: normal;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    user-select: none;
+    animation: fadeInUp 0.4s ease-out;
+}
+
+/* Efeito de onda ao clicar */
+.button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.button:active::before {
+    width: 300px;
+    height: 300px;
+    transition: width 0s, height 0s;
+}
+
+/* Variante Primary */
+.button.primary {
+    background-color: var(--cor-padrao);
+    color: var(--branco);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.button.primary:hover {
+    background-color: var(--cor-padrao-hover, var(--cor-padrao));
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(var(--cor-padrao-rgb, 99, 102, 241), 0.3);
+}
+
+.button.primary:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Variante Secondary */
+.button.secondary {
+    background-color: var(--background-terciaria);
+    color: var(--cor-padrao);
+    border: 1px solid var(--cor-padrao);
+}
+
+.button.secondary::before {
+    background: rgba(var(--cor-padrao-rgb, 99, 102, 241), 0.1);
+}
+
+.button.secondary:hover {
+    background-color: var(--cor-padrao);
+    color: var(--branco);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(var(--cor-padrao-rgb, 99, 102, 241), 0.2);
+}
+
+.button.secondary:active {
+    transform: translateY(0);
+}
+
+/* Variante Outline */
+.button.outline {
+    background-color: transparent;
+    color: var(--cor-texto);
+    border: 1px solid var(--color-tan-700);
+}
+
+.button.outline::before {
+    background: rgba(var(--cor-padrao-rgb, 99, 102, 241), 0.05);
+}
+
+.button.outline:hover {
+    border-color: var(--cor-padrao);
+    color: var(--cor-padrao);
+    background-color: rgba(var(--cor-padrao-rgb, 99, 102, 241), 0.05);
+    transform: translateY(-1px);
+}
+
+/* Variante Ghost */
+.button.ghost {
+    background-color: transparent;
+    color: var(--cor-texto);
+}
+
+.button.ghost::before {
+    background: var(--background-efeitos-25);
+}
+
+.button.ghost:hover {
+    background-color: var(--background-efeitos-15);
+    color: var(--cor-padrao);
+}
+
+/* Variante Danger */
+.button.danger {
+    background-color: var(--erro);
+    color: var(--branco);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.button.danger:hover {
+    background-color: var(--erro-hover, var(--erro));
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+    filter: brightness(0.9);
+}
+
+/* Tamanhos */
+.button.small {
+    height: 2rem;
+    padding: 0 1rem;
+    font-size: 0.75rem;
+}
+
+.button.large {
+    height: 3rem;
+    padding: 0 2rem;
+    font-size: 1rem;
+}
+
+/* Estado de loading */
+.button.loading {
+    pointer-events: none;
+    position: relative;
+    color: transparent;
+}
+
+.button.loading::after {
+    content: '';
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid transparent;
+    border-top-color: currentColor;
+    border-radius: 50%;
+    animation: buttonSpin 0.6s linear infinite;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--branco);
+}
+
+.button.secondary.loading::after,
+.button.outline.loading::after,
+.button.ghost.loading::after {
+    color: var(--cor-padrao);
+}
+
+@keyframes buttonSpin {
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* Estado desabilitado */
+.button:disabled,
+.button.disabled {
+    pointer-events: none;
+    background-color: var(--cinza-claro);
+    color: #99999b;
+    border-color: #dadbdd;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+    opacity: 0.6;
+}
+
+/* Ícones no botão */
+.button i,
+.button svg {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.2s ease;
+}
+
+.button:hover i,
+.button:hover svg {
+    transform: scale(1.1);
+}
+
+/* Botão com ícone apenas */
+.button.iconOnly {
+    width: 2.5rem;
+    padding: 0;
+}
+
+.button.iconOnly.small {
+    width: 2rem;
+}
+
+.button.iconOnly.large {
+    width: 3rem;
+}
+
+/* Grupo de botões */
+.buttonGroup {
+    display: inline-flex;
+    gap: 0;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.buttonGroup .button {
+    border-radius: 0;
+    margin: 0;
+}
+
+.buttonGroup .button:first-child {
+    border-radius: 0.5rem 0 0 0.5rem;
+}
+
+.buttonGroup .button:last-child {
+    border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.buttonGroup .button:not(:last-child) {
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Efeito de foco para acessibilidade */
+.button:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(var(--cor-padrao-rgb, 99, 102, 241), 0.3);
+}
+
+/* Animação de pulse para ações importantes */
+.button.pulse {
+    animation: buttonPulse 2s ease-in-out infinite;
+}
+
+@keyframes buttonPulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(var(--cor-padrao-rgb, 99, 102, 241), 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(var(--cor-padrao-rgb, 99, 102, 241), 0);
+    }
+}
+
+/* Botão full width */
+.button.fullWidth {
+    width: 100%;
+}
