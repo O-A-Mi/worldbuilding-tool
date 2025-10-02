@@ -62,6 +62,20 @@
   --color-copper-900: #5c3427;
   --color-copper-950: #351a13;
 
+  --borda-50: #ffffff;
+  --borda-100: #efefef;
+  --borda-200: #dcdcdc;
+  --borda-300: #bdbdbd;
+  --borda-400: #989898;
+  --borda-500: #7c7c7c;
+  --borda-600: #656565;
+  --borda-700: #525252;
+  --borda-800: #464646;
+  --borda-900: #3d3d3d;
+  --borda-950: #292929;
+
+  --raio-borda: 0.5rem;
+
   --cor-padrao: var(--color-tan-400);
   --cor-secundaria: var(--color-coral-reef-400);
   --cor-terciaria: var(--color-porcelain-400);
@@ -70,6 +84,7 @@
   --fonte-padrao: 'Inter', sans-serif;
   --background: var(--color-shark-950);
   --background-segundario: var(--color-shark-925);
+  --background-terciaria: var(--color-shark-900);
   --background-efeitos-50: #d5ae6f77;
   --background-efeitos-25: #d5ae6f2e;
   --background-efeitos-15: #d5ae6f18;
